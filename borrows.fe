@@ -10,11 +10,12 @@
 int main() {
     int x = 10;
 
-    int& reader = &x;          // immutable borrow — read only
-    printf("read: %d\n", *reader);
-    // reader goes out of scope here, releasing the borrow
+    {
+        int& reader = &x;          // immutable borrow — read only
+        printf("read: %d\n", *reader);
+    }   // reader goes out of scope here, borrow released
 
-    int&mut writer = &mut x;   // mutable borrow — read and write
+    int&mut writer = &mut x;   // mutable borrow — safe, no active borrows
     *writer = 99;
     printf("after write: %d\n", x);
 
