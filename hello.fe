@@ -1,0 +1,7 @@
+// hello.fe — Hello World in Ferrum
+#include <stdio.h>
+
+int main() {
+    printf("Hello from Ferrum!\n");
+    return 0;
+}

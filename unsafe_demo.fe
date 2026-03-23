@@ -1,0 +1,21 @@
+// unsafe_demo.fe — How 'unsafe' works in Ferrum
+//
+// Raw pointers are allowed inside unsafe {} blocks.
+// Outside of unsafe, the compiler rejects them.
+//
+#include <stdio.h>
+
+int main() {
+    int x = 7;
+
+    // int* unsafe p = &x;   // error[E0133]: unsafe pointer outside unsafe block
+
+    unsafe {
+        int* unsafe p = &x;  // OK inside unsafe
+        printf("p points to: %d\n", *p);
+        *p = 77;
+    }
+
+    printf("x is now: %d\n", x);
+    return 0;
+}

@@ -1,0 +1,24 @@
+// ownership.fe — Ownership and move semantics in Ferrum
+//
+// Demonstrates:
+//   - Heap allocation with 'new'
+//   - Ownership transfer with move()
+//   - Automatic free() at end of scope (no manual free needed)
+//
+#include <stdio.h>
+
+int main() {
+    int* a = new int(42);   // 'a' owns the heap integer
+
+    printf("a = %d\n", *a);
+
+    int* b = move(a);       // ownership transferred to 'b'; 'a' is now invalid
+
+    printf("b = %d\n", *b);
+
+    // Using 'a' here would be a compile-time error:
+    // error[E0382]: use of moved value 'a'
+
+    return 0;
+    // free(b) is inserted automatically — no memory leak
+}
