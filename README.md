@@ -51,4 +51,4 @@ sudo apt install llvm-18 llvm-18-dev gcc g++ build-essential
 
 ---
 
-*Ferrum Compiler v0.2 — [Ferrum-Language](https://github.com/Ferrum-Language)*
+*Ferrum-language Compiler v0.3 — [Ferrum-Language](https://github.com/Ferrum-Language)*
